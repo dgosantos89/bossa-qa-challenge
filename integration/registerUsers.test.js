@@ -1,7 +1,7 @@
 const request = require('supertest')('https://drj335kkci.execute-api.sa-east-1.amazonaws.com/dev/v1')
 const faker = require('faker-br')
 
-describe('Register Users', () => {
+describe('Register User', () => {
   it('with valid values succeeds', async () => {
     var email = faker.internet.email()
     const response = await request
@@ -19,7 +19,7 @@ describe('Register Users', () => {
     expect(response.body.token).not.toBeNull()
   })
   
-  it('without fullname get 400 error', async () => {
+  it('without fullname gets 400 error', async () => {
     var email = faker.internet.email()
     const response = await request
       .post('/users')
@@ -35,7 +35,7 @@ describe('Register Users', () => {
     expect(response.body.error.type).toBe('ApiError')
   })
   
-  it('with duplicated email get 400 error', async () => {
+  it('with duplicated email gets 400 error', async () => {
     const response = await request
       .post('/users')
       .send({
@@ -51,7 +51,7 @@ describe('Register Users', () => {
     expect(response.body.error.type).toBe('ApiError')
   })
 
-  it('with invalid email get 400 error', async () => {
+  it('with invalid email gets 400 error', async () => {
     const response = await request
       .post('/users')
       .send({
@@ -67,7 +67,7 @@ describe('Register Users', () => {
     expect(response.body.error.type).toBe('ApiError')
   })
   
-  it('with just first name get 400 error - Possible BUG', async () => {
+  it('with just first name gets 400 error - Possible BUG', async () => {
     var email = faker.internet.email()
     const response = await request
       .post('/users')
@@ -82,7 +82,7 @@ describe('Register Users', () => {
     //Despite not being in the doc, I believe the fullName must be filled with the full name
   })
   
-  it('with empty fullname get 400 error - Possible BUG', async () => {
+  it('with empty fullname gets 400 error - Possible BUG', async () => {
     var email = faker.internet.email()
     const response = await request
       .post('/users')
@@ -97,7 +97,7 @@ describe('Register Users', () => {
      //FullName is required, but the api doesn`t seem to be ready for this error
   })
 
-  it('with empty password get 400 error - Possible BUG', async () => {
+  it('with empty password gets 400 error - Possible BUG', async () => {
     var email = faker.internet.email()
     const response = await request
       .post('/users')
@@ -112,7 +112,7 @@ describe('Register Users', () => {
     //Password is required, but the api doesn`t seem to be ready for this error
   })
 
-  it('without password get 400 error - Possible BUG', async () => {
+  it('without password gets 400 error - Possible BUG', async () => {
     var email = faker.internet.email()
     const response = await request
       .post('/users')
@@ -126,7 +126,7 @@ describe('Register Users', () => {
     //Password is required, but the api doesn`t seem to be ready for this error
   })
   
-  it('with a invalid loginType get 400 error - Possible BUG', async () => {
+  it('with a invalid loginType gets 400 error - Possible BUG', async () => {
     var email = faker.internet.email()
     const response = await request
       .post('/users')
@@ -141,7 +141,7 @@ describe('Register Users', () => {
     //Invalid loginType could return an user error
   })
 
-  it('without loginType get 400 error - Possible BUG', async () => {
+  it('without loginType gets 400 error - Possible BUG', async () => {
     var email = faker.internet.email()
     const response = await request
       .post('/users')
