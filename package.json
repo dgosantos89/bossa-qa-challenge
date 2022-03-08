@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Bossa Box QA challenge",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "cypress run",
+    "cy:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -15,7 +17,11 @@
     "url": "https://github.com/dgosantos89/bossa-qa-challenge/issues"
   },
   "homepage": "https://github.com/dgosantos89/bossa-qa-challenge#readme",
+  "jest": {
+    "testMatch": [ "**/integration/?(*.)+(test).js" ]
+  },
   "devDependencies": {
+    "cypress": "^9.5.1",
     "faker-br": "^0.4.1",
     "jest": "^27.5.1",
     "supertest": "^6.2.2"
