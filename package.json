@@ -1,0 +1,23 @@
+{
+  "name": "bossa-qa-challenge",
+  "version": "1.0.0",
+  "description": "Bossa Box QA challenge",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgosantos89/bossa-qa-challenge.git"
+  },
+  "author": "Diego Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dgosantos89/bossa-qa-challenge/issues"
+  },
+  "homepage": "https://github.com/dgosantos89/bossa-qa-challenge#readme",
+  "devDependencies": {
+    "faker-br": "^0.4.1",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
+  }
+}
